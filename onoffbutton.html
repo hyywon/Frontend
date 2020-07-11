@@ -1,0 +1,62 @@
+ 
+<SCRIPT LAUNGUAGE='JAVASCRIPT'>
+function ledon(){
+
+var xhr = new XMLHttpRequest();
+var data = {
+    "m2m:cin": {
+        "con": "3"
+    }
+};
+
+xhr.onload = function() {
+  if (xhr.status === 200 || xhr.status === 201) {
+    console.log(xhr.responseText);
+  } else {
+    console.error(xhr.responseText);
+  }
+};
+
+xhr.open('POST', 'http://203.253.128.161:7579/Mobius/schsmartfitme/ledm');
+xhr.setRequestHeader('Accept', 'application/json');
+xhr.setRequestHeader('X-M2M-RI', '12345');
+xhr.setRequestHeader('X-M2M-Origin', 'SJ-I_ntS19p');
+xhr.setRequestHeader('Content-Type', 'application/vnd.onem2m-res+json; ty=4');
+xhr.send(JSON.stringify(data)); // 데이터를 stringify해서 보냄
+
+}
+function ledoff(){
+
+var xhr = new XMLHttpRequest();
+var data = {
+    "m2m:cin": {
+        "con": "4"
+    }
+};
+
+xhr.onload = function() {
+  if (xhr.status === 200 || xhr.status === 201) {
+    console.log(xhr.responseText);
+  } else {
+    console.error(xhr.responseText);
+  }
+};
+
+xhr.open('POST', 'http://203.253.128.161:7579/Mobius/schsmartfitme/ledm');
+xhr.setRequestHeader('Accept', 'application/json');
+xhr.setRequestHeader('X-M2M-RI', '12345');
+xhr.setRequestHeader('X-M2M-Origin', 'SJ-I_ntS19p');
+xhr.setRequestHeader('Content-Type', 'application/vnd.onem2m-res+json; ty=4');
+xhr.send(JSON.stringify(data)); // 데이터를 stringify해서 보냄
+
+}
+</SCRIPT>
+
+<FORM>
+
+ <INPUT type='BUTTON' value='ON' onclick='ledon()'>
+
+ <INPUT type='BUTTON' value='OFF' onclick='ledoff()'>
+
+</FORM>
+
