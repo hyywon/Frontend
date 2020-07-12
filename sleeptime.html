@@ -1,0 +1,48 @@
+
+<SCRIPT LAUNGUAGE='JAVASCRIPT'>
+
+function sleeptime(){
+
+var st = document.getElementById("send").value;
+console.log(st);
+
+var xhr = new XMLHttpRequest();
+var data = {
+    "m2m:cin": {
+        "con":  st.toString() 
+    }
+};
+xhr.onload = function() {
+  if (xhr.status === 200 || xhr.status === 201) {
+    console.log(xhr.responseText);
+  } else {
+    console.error(xhr.responseText);
+  }
+};
+
+xhr.open('POST', 'http://203.253.128.161:7579/Mobius/schsmartfitme/ledm');
+xhr.setRequestHeader('Accept', 'application/json');
+xhr.setRequestHeader('X-M2M-RI', '12345');
+xhr.setRequestHeader('X-M2M-Origin', 'SJ-I_ntS19p');
+xhr.setRequestHeader('Content-Type', 'application/vnd.onem2m-res+json; ty=4');
+xhr.send(JSON.stringify(data)); // 데이터를 stringify해서 보냄
+
+}
+
+
+</SCRIPT>
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>취침 모드</h2>
+<p>취침 모드 실행을 원하면 <strong>시간 </strong>을 입력하세요</p>
+
+</body>
+</html>
+
+
+<FORM>
+<input name="time" type="text" id="send"  /><br />
+<input type="submit" value="전송" onclick='sleeptime()' /><br />
+</FORM>
