@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title> Search </title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Montserrat";
+        }
+
+        .searchbox {
+            width: 90%;
+            margin: 10px auto;
+        }
+
+        .header {
+            background: #ECDFBF;
+            overflow: hidden;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .header h1 {
+            text-transform: uppercase;
+            color: white;
+            margin: 0;
+            margin-bottom: 8px;
+        }
+
+        #value {
+            border: none;
+            background: #E0D3B6;
+            padding: 6px;
+            font-size: 18px;
+            width: 80%;
+            border-radius: 6px;
+            color: white;
+        }
+
+        #value:focus {
+            outline: none;
+        }
+
+        .container {
+            background: #FFFFF5;
+            padding: 1%;
+        }
+
+        .item {
+            margin: 3% 0px;
+            display: flex;
+            align-items: center;
+        }
+
+        .icon {
+            width: 20px;
+            height: 20px;
+            background: #E0D3B6;
+            color: white;
+            font-size: 15px;
+            text-align: center;
+            line-height: 20px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+
+        .name {
+            font-size: 15px;
+            font-weight: 470;
+            color: #333;
+            padding-right: 20px;
+        }
+
+        a {
+            font-size: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="searchbox">
+        <div class="header">
+            <h1>Chungnam University Search</h1>
+            <!--키보드 눌렸을 때 검사하도록 -->
+            <input onkey="filter()" type="text" id="value" placeholder="Search the Univ">
+        </div>
+
+        <div class="container">
+
+            <div class="item">
+                <span class="icon">S</span>
+                <span class="name">Soonchunhyang Univ</span>
+                <a href="https://homepage.sch.ac.kr">바로가기</a>
+            </div>
+
+            <div class="item">
+                <span class="icon">K</span>
+                <span class="name">Kongju Univ</span>
+                <a href="https://www.kongju.ac.kr">바로가기</a>
+            </div>
+
+            <div class="item">
+                <span class="icon">B</span>
+                <span class="name">Baekseok Univ</span>
+                <a href="https://www.bu.ac.kr">바로가기</a>
+            </div>
+
+            <div class="item">
+                <span class="icon">K</span>
+                <span class="name">Konyang Univ</span>
+                <a href="https://www.konyang.ac.kr">바로가기</a>
+            </div>
+
+            <div class="item">
+                <span class="icon">H</span>
+                <span class="name">Hoseo Univ</span>
+                <a href="https://www.hoseo.ac.kr">바로가기</a>
+            </div>
+
+            <div class="item">
+                <span class="icon">N</span>
+                <span class="name">NamSeoul Univ</span>
+                <a href="https://www.nsu.ac.kr">바로가기</a>
+            </div>
+
+            <div class="item">
+                <span class="icon">K</span>
+                <span class="name">Korea Nazarene Univ</span>
+                <a href="https://www.kornu.ac.kr">바로가기</a>
+            </div>
+
+            <div class="item">
+                <span class="icon">J</span>
+                <span class="name">Joongbu Univ</span>
+                <a href="https://www.joongbu.ac.kr">바로가기</a>
+            </div>
+
+            <div class="item">
+                <span class="icon">H</span>
+                <span class="name">Hanseo Univ</span>
+                <a href="https://helper.hanseo.ac.kr">바로가기</a>
+            </div>
+            
+            <div class="item">
+                <span class="icon">H</span>
+                <span class="name">Hyejeon Univ</span>
+                <a href="https://www.hj.ac.kr">바로가기</a>
+            </div>
+
+            <div class="item">
+                <span class="icon">P</span>
+                <span class="name">Korea National Police Univ</span>
+                <a href="https://police.ac.kr">바로가기</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<script type="text/javascript">
+    function filter(){
+
+      var value, name, item, i;
+
+      value = document.getElementById("value").value.toUpperCase();
+      item = document.getElementsByClassName("item");
+
+      for(i=0;i<item.length;i++){
+        name = item[i].getElementsByClassName("name");
+        // 값이 없으면 -1, 있으면 -1이상 양수 반환  
+        if(name[0].innerHTML.toUpperCase().indexOf(value) > -1){
+            // flex 형식으로 출력
+          item[i].style.display = "flex";
+        }else{
+          item[i].style.display = "none";
+        }
+      }
+    }
+</script>
